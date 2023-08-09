@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Handson 1</title>
+    <style>
+        h3{
+            color:blue
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Create a database , give it name like "Human_Resource". Create a collection inside this named "employee"</h1>
+    <h3>mongosh</h3>
+    <h3>use Human_Resource</h3>
+    <h3><pre>db.employee.insertMany([{ 
+        // added all the jsons
+    }])</pre></h3>
+
+    <h1>Query the collection "employee" and list all the documents</h1>
+    <h3>db.employee.find()</h3>
+
+<h1>Query the collection "employee" and list the employees who are having salary more than 30000</h1>
+<h3>db.employee.find({ "salary": { $gt: "30000" } });</h3>
+
+<h1>Query the collection "employee" and list the employees who are having experience more than 2 years.</h1>
+<h3>db.employee.find({"overallExp":{$gt:'2'}});</h3>
+
+<h1>Query the collection "employee" and list the employees who are graduated after 2015 and having experience more than 1 year </h1>
+<h3>db.employee.find({"yearGrad":{$gt:"2015"},"
+    overallExp":{$gt:"1"}});</h3>
+
+<h1>Query the collection "employee" and update the salary of the employee whose salary is greater than 70000 to 65000.</h1>
+<h3>db.employee.updateOne({"salary":{ $gt: "70000" }},{$set{"salary":"65000" }})
+</h3>
+
+<h1>Delete all the documents from "employee" where last company is Y</h1>
+<h3>db.employee.deleteMany({"lastCompany":"Y"});</h3>
+</body>
+</html>
